@@ -15,12 +15,8 @@ public class Walker {
 		this.dir = rng.nextInt(4);
 	}
 
-	public int getPosX() {
-		return this.pos.x();
-	}
-
-	public int getPosY() {
-		return this.pos.y();
+	public Coordenada getCoord() {
+		return this.pos;
 	}
 	public boolean createsNewQ() {
 		boolean createsNew = false;
@@ -55,12 +51,12 @@ public class Walker {
     				}
     				break;
     			case 2:
-    				if(this.pos.y() < 13) {
+    				if(this.pos.y() < 23) {
     					this.pos.setY(this.pos.y() + 1);
     				}
     				break;
     			case 3:
-    				if(this.pos.x() < 13) {
+    				if(this.pos.x() < 23) {
     					this.pos.setX(this.pos.x() + 1);
     				}
     				break;
