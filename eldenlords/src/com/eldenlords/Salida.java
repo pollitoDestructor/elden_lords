@@ -5,5 +5,6 @@ public class Salida extends Casilla{
 		super();
 		this.salida = true;
 		this.imagen = "!";
+		this.habilitada = true;
 	}
 }

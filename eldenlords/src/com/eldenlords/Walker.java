@@ -5,10 +5,11 @@ import java.util.Random;
 public class Walker {
 	private Coordenada pos = new Coordenada(0,0);
 	private int dir;
-	private float chanceChange = 0.3f;
+	private float chanceChange = 0.25f;
 	private float chanceWalkerSpawn = 0.05f;
+	private float probCasillaEspecial = 0.05f;
+	private float probTeleport = 0.2f;
 	private Random rng  = new Random();
-	private boolean destroyed = false;
 	public Walker(int pPosX, int pPosY) {
 		this.pos.setX(pPosX);
 		this.pos.setY(pPosY);
@@ -18,22 +19,35 @@ public class Walker {
 	public Coordenada getCoord() {
 		return this.pos;
 	}
-	public boolean createsNewQ() {
-		boolean createsNew = false;
+	public boolean creaNuevoWalker() {
+		boolean creaNuevo = false;
 		if(rng.nextInt(100)/100f <= this.chanceWalkerSpawn) {
-			createsNew = true;
+			creaNuevo = true;
 		}
-		return createsNew;
+		return creaNuevo;
+	}
+	public int tipoCasilla() {
+		int casilla = 0;
+		if(rng.nextInt(100)/100f<=this.probCasillaEspecial) {
+			if(rng.nextInt(100)/100f<=this.probTeleport) {
+				casilla = 1;
+			} else {
+				casilla = 2;
+			}
+		} else {
+			casilla = 0;
+		}
+		return casilla;
 	}
 	public void chooseAction() {
-		int newDir;
-		if(this.destroyed == false) {
+		int limite = Mapa.getMapa().getTamano() - 2;
+		int nDir;
 			if(rng.nextInt(100)/100f <= this.chanceChange) {
-				newDir = rng.nextInt(4);
-				while(newDir == this.dir) {
-					newDir = rng.nextInt(4);
+				nDir = rng.nextInt(4);
+				while(nDir == this.dir) {
+					nDir = rng.nextInt(4);
 				}
-				dir = newDir;
+				dir = nDir;
 			}
     
 			switch(this.dir) {
@@ -51,16 +65,15 @@ public class Walker {
     				}
     				break;
     			case 2:
-    				if(this.pos.y() < 23) {
+    				if(this.pos.y() < limite) {
     					this.pos.setY(this.pos.y() + 1);
     				}
     				break;
     			case 3:
-    				if(this.pos.x() < 23) {
+    				if(this.pos.x() < limite) {
     					this.pos.setX(this.pos.x() + 1);
     				}
     				break;
     			}
     		}
-    	}
 	}

@@ -51,4 +51,16 @@ public class Mapa {
     public void ponerCasillaFinal(Coordenada pCoord) {
     	this.tablero[pCoord.x()][pCoord.y()] = new Salida();
     }
+    public void ponerCasillaTeleport(Coordenada pCoord) {
+    	this.tablero[pCoord.x()][pCoord.y()] = new Teleport();
+    }
+    public void ponerCasillaPreguntona(Coordenada pCoord) {
+    	this.tablero[pCoord.x()][pCoord.y()] = new Preguntona();
+    }
+    public int getTamano() {
+    	return this.tablero.length;
+    }
+    public boolean esSalida(Coordenada pCoord) {
+    	return this.tablero[pCoord.x()][pCoord.y()].esSalida();
+    }
 }
