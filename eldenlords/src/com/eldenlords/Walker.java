@@ -5,7 +5,7 @@ import java.util.Random;
 public class Walker {
 	private Coordenada pos = new Coordenada(0,0);
 	private int dir;
-	private float chanceChange = 0.25f;
+	private float chanceChange = 0.2f;
 	private float chanceWalkerSpawn = 0.05f;
 	private float probCasillaEspecial = 0.05f;
 	private float probTeleport = 0.2f;
