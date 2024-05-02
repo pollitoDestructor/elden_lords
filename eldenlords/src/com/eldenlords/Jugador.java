@@ -13,7 +13,7 @@ public class Jugador {
 	}
 	public void jugarPartida() {
 		Mapa.getMapa().prepararTablero();
-		this.numPasos = 0;
+		this.numPasos = 1;
 		
 	}
 >>>>>>> 57914bf Jugador creado
