@@ -9,7 +9,6 @@ public class Mapa {
 	public Mapa() {
 		this.tablero = new Casilla[25][25];
 		
-		
 	}
 	
 	public static Mapa getMapa() {
