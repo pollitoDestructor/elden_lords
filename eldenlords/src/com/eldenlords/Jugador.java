@@ -11,7 +11,6 @@ public class Jugador {
 	}
 	public void jugarPartida() {
 		Mapa.getMapa().prepararTablero();
-		this.numPasos = 1;
 		
 	}
 }
