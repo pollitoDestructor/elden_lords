@@ -1,4 +1,4 @@
-
+package com.eldenlords;
 public class ListaPreguntas {
-private int VivaVOX;
+	
 }
