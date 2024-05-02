@@ -1,9 +1,7 @@
 package com.eldenlords;
 
 public class Jugador {
-<<<<<<< Upstream, based on elden_lords/master
 
-=======
 	private static Jugador miJugador = new Jugador();
 	private Coordenada coord;
 	private int numPasos;
@@ -16,5 +14,4 @@ public class Jugador {
 		this.numPasos = 1;
 		
 	}
->>>>>>> 57914bf Jugador creado
 }
