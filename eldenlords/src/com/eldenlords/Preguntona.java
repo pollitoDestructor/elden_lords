@@ -6,4 +6,8 @@ public class Preguntona extends Casilla {
 		this.imagen = "?";
 		this.habilitada = true;
 	}
+	@Override
+	public void hacerCamino() {
+		this.imagen = "¿";
+	}
 }

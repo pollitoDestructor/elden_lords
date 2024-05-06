@@ -6,4 +6,5 @@ public class Teleport extends Casilla {
 		this.imagen = "@";
 		this.habilitada = true;
 	}
+
 }

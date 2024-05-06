@@ -18,8 +18,6 @@ class MapaTest {
 
 	@Test
 	void test() {
-		Mapa.getMapa().prepararTablero();
-		Mapa.getMapa().printMap();
 		Jugador.getJugador().jugarPartida();
 		
 	}

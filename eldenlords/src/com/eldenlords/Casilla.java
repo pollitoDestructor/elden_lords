@@ -26,6 +26,6 @@ public class Casilla {
 		return this.imagen;
 	}
 	public void hacerCamino() {
-		this.imagen = "*";
+		this.imagen = "+";
 	}
 }
