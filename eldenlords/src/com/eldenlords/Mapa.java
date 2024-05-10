@@ -63,4 +63,27 @@ public class Mapa {
     public boolean esSalida(Coordenada pCoord) {
     	return this.tablero[pCoord.x()][pCoord.y()].esSalida();
     }
+    public void posiblesMovimientos(Coordenada pCoord) {
+    	System.out.print("Posibles movimientos:");
+    	System.out.println();
+    	if(this.tablero[pCoord.x() - 1][pCoord.y()].habilitada) {
+    		System.out.print("Arriba");
+    		System.out.println();
+    	}
+    	if(this.tablero[pCoord.x() + 1][pCoord.y()].habilitada) {
+    		System.out.print("Abajo");
+    		System.out.println();
+    	}
+    	if(this.tablero[pCoord.x()][pCoord.y() - 1].habilitada) {
+    		System.out.print("Izquierda");
+    		System.out.println();
+    	}
+    	if(this.tablero[pCoord.x()][pCoord.y() + 1].habilitada) {
+    		System.out.print("Derecha");
+    		System.out.println();
+    	}
+    }
+    public void cambiarImagen(Coordenada pCoord) {
+    	this.tablero[pCoord.x()][pCoord.y()].hacerCamino();
+    }
 }

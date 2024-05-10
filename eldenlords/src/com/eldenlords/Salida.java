@@ -7,4 +7,9 @@ public class Salida extends Casilla{
 		this.imagen = "!";
 		this.habilitada = true;
 	}
+	
+	@Override
+	public void activarEvento() {
+		
+	}
 }
