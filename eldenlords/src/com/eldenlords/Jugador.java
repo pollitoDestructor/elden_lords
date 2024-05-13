@@ -21,7 +21,12 @@ public class Jugador {
 		while (!Mapa.getMapa().esSalida(this.coord)) {
 			System.out.println();
 			Mapa.getMapa().posiblesMovimientos(this.coord);
-			this.mover();
+			try {
+				this.mover();
+			} catch(NoEsDireccionException me) {
+				System.out.print("No has escrito bien la dirección (asegúrate de empezar con mayúscula).");
+				System.out.println();
+			}
 		}
 		System.out.print("Enhorabuena, has salido del laberinto");
 		System.out.println();
@@ -31,36 +36,71 @@ public class Jugador {
 		System.out.println();
 		Mapa.getMapa().printMap();
 	}
-	private void mover() {
+	private void mover() throws NoEsDireccionException{
 		String movimiento = Teclado.getTeclado().leerString();
 		switch(movimiento){
 		case "Arriba":
-			contarMovimiento();
-			this.coord.setX(this.coord.x() - 1);
+			try {
+				this.coord.setX(this.coord.x() - 1);
+				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
+					throw (new PosicionOcupadaException());
+				} else {
+					contarMovimiento();
+				}
+			} catch (PosicionOcupadaException me) {
+				System.out.print("La dirección introducida está ocupada");
+				System.out.println();
+				this.coord.setX(this.coord.x() + 1);
+			}
 			
 			break;
 		case "Abajo":
-			contarMovimiento();
-			this.coord.setX(this.coord.x() + 1);
-			
+			try {
+				this.coord.setX(this.coord.x() + 1);
+				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
+					throw (new PosicionOcupadaException());
+				} else {
+					contarMovimiento();
+				}
+			} catch (PosicionOcupadaException me) {
+				System.out.print("La dirección introducida está ocupada");
+				System.out.println();
+				this.coord.setX(this.coord.x() - 1);
+			}
 			break;
 		case "Derecha":
-			contarMovimiento();
-			this.coord.setY(this.coord.y() + 1);
-			
+			try {
+				this.coord.setY(this.coord.y() + 1);
+				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
+					throw (new PosicionOcupadaException());
+				} else {
+					contarMovimiento();
+				}
+			} catch (PosicionOcupadaException me) {
+				System.out.print("La dirección introducida está ocupada");
+				System.out.println();
+				this.coord.setY(this.coord.y() - 1);
+			}			
 			break;
 		case "Izquierda":
-			contarMovimiento();
-			this.coord.setY(this.coord.y() - 1);
-			
+			try {
+				this.coord.setY(this.coord.y() - 1);
+				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
+					throw (new PosicionOcupadaException());
+				} else {
+					contarMovimiento();
+				}
+			} catch (PosicionOcupadaException me) {
+				System.out.print("La dirección introducida está ocupada");
+				System.out.println();
+				this.coord.setY(this.coord.y() + 1);
+			}
 			break;
 		case "m":
 			Mapa.getMapa().printMap();
 			break;
 		default:
-			System.out.print("No has escrito bien la dirección (asegúrate de empezar con mayúscula).");
-			System.out.println();
-			break;
+			throw(new NoEsDireccionException());
 		}
 	}
 	private void contarMovimiento() {
