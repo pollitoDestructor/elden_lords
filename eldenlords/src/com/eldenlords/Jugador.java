@@ -15,6 +15,9 @@ public class Jugador {
 	public static void main(String[] args) {
         Jugador.getJugador().jugarPartida();
     }
+	public void setCoord(int pCoord) {
+		this.coord = pCoord;
+	}
 	public void jugarPartida() {
 		Mapa.getMapa().prepararTablero();
 		Mapa.getMapa().cambiarImagen(this.coord);
