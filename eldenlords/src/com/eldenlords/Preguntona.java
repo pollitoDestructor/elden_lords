@@ -8,12 +8,7 @@ public class Preguntona extends Casilla {
 	}
 	
 	public void activarEvento() {
-		//pedir un pNum al dado
-		imprimirPregunta(buscarPregunta(pNum).getPregunta);
-		String respuesta = Teclado.getTeclado().leerString();
-		if(respuesta/=buscarPregunta(pNum).getRespuesta) {
-			jugador.setCoord(Mapa.getMapa().getCentro().x(),Mapa.getMapa().getCentro().y());
-		}
+
 	}
 	@Override
 	public void hacerCamino() {

@@ -15,9 +15,9 @@ public class Jugador {
 	public static void main(String[] args) {
         Jugador.getJugador().jugarPartida();
     }
-	public void setCoord(int pCoord) {
-		this.coord = pCoord;
-	}
+	//public void setCoord(Coordenada pCoord) {
+	//	this.coord = pCoord;
+	//}
 	public void jugarPartida() {
 		Mapa.getMapa().prepararTablero();
 		Mapa.getMapa().cambiarImagen(this.coord);
@@ -44,12 +44,11 @@ public class Jugador {
 		switch(movimiento){
 		case "Arriba":
 			try {
+				contarMovimiento();
 				this.coord.setX(this.coord.x() - 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
-				} else {
-					contarMovimiento();
-				}
+				} 
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
 				System.out.println();
@@ -59,11 +58,10 @@ public class Jugador {
 			break;
 		case "Abajo":
 			try {
+				contarMovimiento();
 				this.coord.setX(this.coord.x() + 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
-				} else {
-					contarMovimiento();
 				}
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
@@ -73,11 +71,10 @@ public class Jugador {
 			break;
 		case "Derecha":
 			try {
+				contarMovimiento();
 				this.coord.setY(this.coord.y() + 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
-				} else {
-					contarMovimiento();
 				}
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
@@ -87,12 +84,11 @@ public class Jugador {
 			break;
 		case "Izquierda":
 			try {
+				contarMovimiento();
 				this.coord.setY(this.coord.y() - 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
-				} else {
-					contarMovimiento();
-				}
+				} 
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
 				System.out.println();

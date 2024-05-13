@@ -3,16 +3,12 @@ package com.eldenlords;
 public class Pregunta {
 	private String pregunta;
 	private String respuesta;
+
+
+public Pregunta(String pPregunta,String pRespuesta) {
+	this.pregunta = pPregunta;
+	this.respuesta = pRespuesta;
 }
 
-public String getPregunta() {
-	return this.pregunta;
-}
 
-public String getRespuesta() {
-	return this.respuesta;
-}
-
-public void imprimirPregunta {
-	System.out.println("PREGUNTA")
 }
