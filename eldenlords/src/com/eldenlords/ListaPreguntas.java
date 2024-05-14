@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class ListaPreguntas {
 	private ArrayList<Pregunta> lista = new ArrayList<>();
-	private ListaPreguntas() {
+	public ListaPreguntas() {
 	Pregunta preg1 = new Pregunta("¿Cuántos planetas componen el sistema solar?","8");
 	lista.add(preg1);
 	Pregunta preg2 = new Pregunta("¿Qué cantidad de huesos hay en el cuerpo humano?","206");
@@ -20,5 +20,8 @@ public class ListaPreguntas {
 	Pregunta preg7 = new Pregunta("¿Cuál es la montaña más alta del planeta?","Everest");
 	lista.add(preg7);
 }
+	public boolean hacerPregunta(int pNumPregunta) {
+		return lista.get(pNumPregunta).hacerPregunta();
+	}
 
 }

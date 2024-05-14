@@ -15,9 +15,9 @@ public class Jugador {
 	public static void main(String[] args) {
         Jugador.getJugador().jugarPartida();
     }
-	//public void setCoord(Coordenada pCoord) {
-	//	this.coord = pCoord;
-	//}
+	public void setCoord(Coordenada pCoord) {
+		this.coord = pCoord;
+	}
 	public void jugarPartida() {
 		Mapa.getMapa().prepararTablero();
 		Mapa.getMapa().cambiarImagen(this.coord);
@@ -26,6 +26,7 @@ public class Jugador {
 			Mapa.getMapa().posiblesMovimientos(this.coord);
 			try {
 				this.mover();
+				Mapa.getMapa().activarEvento(this.coord);
 			} catch(NoEsDireccionException me) {
 				System.out.print("No has escrito bien la dirección (asegúrate de empezar con mayúscula).");
 				System.out.println();

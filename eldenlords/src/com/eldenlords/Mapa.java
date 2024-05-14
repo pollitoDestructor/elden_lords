@@ -6,7 +6,7 @@ public class Mapa {
 
 	
 	
-	public Mapa() {
+	private Mapa() {
 		this.tablero = new Casilla[25][25];
 		
 	}
@@ -37,12 +37,19 @@ public class Mapa {
 	   }
 	}
     
+    public void activarEvento(Coordenada pCoord) {
+    	this.tablero[pCoord.x()][pCoord.y()].activarEvento();
+    }
     public void habilitarCasilla(Coordenada pCoord) {
     	this.tablero[pCoord.x()][pCoord.y()].habilitarCasilla();
     }
     
     public Coordenada getCentro() {
     	return new Coordenada((int)this.tablero.length/2,(int)this.tablero.length/2);
+    }
+    
+    public int calcularCentro() {
+    	return (int)this.tablero.length/2;
     }
     
     public boolean estaHabilitada(Coordenada pCoord) {
