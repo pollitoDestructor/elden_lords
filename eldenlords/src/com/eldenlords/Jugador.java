@@ -41,9 +41,9 @@ public class Jugador {
 		Mapa.getMapa().printMap();
 	}
 	private void mover() throws NoEsDireccionException{
-		String movimiento = Teclado.getTeclado().leerString();
+		String movimiento = Teclado.getTeclado().leerString().toLowerCase();
 		switch(movimiento){
-		case "Arriba":
+		case "arriba":
 			try {
 				contarMovimiento();
 				this.coord.setX(this.coord.x() - 1);
@@ -57,7 +57,7 @@ public class Jugador {
 			}
 			
 			break;
-		case "Abajo":
+		case "abajo":
 			try {
 				contarMovimiento();
 				this.coord.setX(this.coord.x() + 1);
@@ -70,7 +70,7 @@ public class Jugador {
 				this.coord.setX(this.coord.x() - 1);
 			}
 			break;
-		case "Derecha":
+		case "derecha":
 			try {
 				contarMovimiento();
 				this.coord.setY(this.coord.y() + 1);
@@ -83,7 +83,7 @@ public class Jugador {
 				this.coord.setY(this.coord.y() - 1);
 			}			
 			break;
-		case "Izquierda":
+		case "izquierda":
 			try {
 				contarMovimiento();
 				this.coord.setY(this.coord.y() - 1);
