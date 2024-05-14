@@ -8,12 +8,11 @@ public class Walker {
 	private float chanceChange = 0.2f;
 	private float chanceWalkerSpawn = 0.05f;
 	private float probCasillaEspecial = 0.05f;
-	private float probTeleport = 0.2f;
-	private Random rng  = new Random();
+	private float probTeleport = 0.4f;
 	public Walker(int pPosX, int pPosY) {
 		this.pos.setX(pPosX);
 		this.pos.setY(pPosY);
-		this.dir = rng.nextInt(4);
+		this.dir = Dado.getDado().tirarDado(4)-1;
 	}
 
 	public Coordenada getCoord() {
@@ -21,15 +20,15 @@ public class Walker {
 	}
 	public boolean creaNuevoWalker() {
 		boolean creaNuevo = false;
-		if(rng.nextInt(100)/100f <= this.chanceWalkerSpawn) {
+		if(((float)Dado.getDado().tirarDado(100)/100) <= this.chanceWalkerSpawn) {
 			creaNuevo = true;
 		}
 		return creaNuevo;
 	}
 	public int tipoCasilla() {
 		int casilla = 0;
-		if(rng.nextInt(100)/100f<=this.probCasillaEspecial) {
-			if(rng.nextInt(100)/100f<=this.probTeleport) {
+		if(((float)Dado.getDado().tirarDado(100)/100)<=this.probCasillaEspecial) {
+			if(((float)Dado.getDado().tirarDado(100)/100)<=this.probTeleport) {
 				casilla = 1;
 			} else {
 				casilla = 2;
@@ -42,10 +41,10 @@ public class Walker {
 	public void chooseAction() {
 		int limite = Mapa.getMapa().getTamano() - 2;
 		int nDir;
-			if(rng.nextInt(100)/100f <= this.chanceChange) {
-				nDir = rng.nextInt(4);
+			if(((float)Dado.getDado().tirarDado(100)/100) <= this.chanceChange) {
+				nDir = Dado.getDado().tirarDado(4)-1;
 				while(nDir == this.dir) {
-					nDir = rng.nextInt(4);
+					nDir = Dado.getDado().tirarDado(4)-1;
 				}
 				dir = nDir;
 			}

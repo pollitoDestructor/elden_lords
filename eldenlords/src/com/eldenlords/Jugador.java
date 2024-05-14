@@ -32,13 +32,7 @@ public class Jugador {
 				System.out.println();
 			}
 		}
-		System.out.print("Enhorabuena, has salido del laberinto");
-		System.out.println();
-		System.out.print("Puntuación:" + this.numPasos);
-		System.out.println();
-		System.out.print("Este ha sido tu recorrido:");
-		System.out.println();
-		Mapa.getMapa().printMap();
+		
 	}
 	private void mover() throws NoEsDireccionException{
 		String movimiento = Teclado.getTeclado().leerString().toLowerCase();
@@ -106,5 +100,8 @@ public class Jugador {
 	private void contarMovimiento() {
 		this.numPasos = this.numPasos + 1;
 		Mapa.getMapa().cambiarImagen(this.coord);
+	}
+	public int puntuacion() {
+		return this.numPasos;
 	}
 }
