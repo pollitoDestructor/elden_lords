@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class MapaTest {
+class TecladoTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -15,17 +15,10 @@ class MapaTest {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
-	
-	
-	
-	
+
 	@Test
-	void testSePegaContraLaPared() {
-		Mapa.getMapa().prepararTablero();
-		Jugador.getJugador().jugarPartida();
-		//Si te mueves en línea recta en cualquier dirección, llegará u n momento en el que no te deje, ya que habrá una pared
+	public void testTeclado() {
+	    String respuesta = Teclado.getTeclado().leerString();
+	        System.out.println(respuesta);
 	}
-
-	
-
 }

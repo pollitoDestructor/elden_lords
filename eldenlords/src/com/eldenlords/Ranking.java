@@ -17,7 +17,30 @@ import java.util.Iterator;
 	}
 	public void añadirRanking(InfoJugador pInfoJugador) {
 		this.lista.add(pInfoJugador);
-		//Collections.sort(this.lista);
+	}
+	public void ordenarRanking() {
+		 Iterator<InfoJugador> itr = this.getIterador();
+		 ArrayList<InfoJugador> listaOrdenada = new ArrayList<InfoJugador>();
+		 InfoJugador mayorPuntuacion;
+		 InfoJugador puntuacionActual;
+		 int index = 0;
+		 int posAEliminar = 0;
+		 while(this.lista.size() > 0) {
+			 index = 0;
+			 mayorPuntuacion = new InfoJugador(0,"a");
+			 while(itr.hasNext()) {
+				 puntuacionActual = itr.next();
+				 if(puntuacionActual.getPuntuacion()>mayorPuntuacion.getPuntuacion()) {
+					 mayorPuntuacion = puntuacionActual;
+					 posAEliminar = index;
+				 }
+				 index = index + 1;
+			 }
+			 listaOrdenada.add(mayorPuntuacion);
+			 lista.remove(posAEliminar);
+			 itr = lista.listIterator();
+		 }
+		 this.lista = listaOrdenada;
 	}
 
 	public void reiniciarRanking() {

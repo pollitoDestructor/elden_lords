@@ -19,6 +19,8 @@ public class Teleport extends Casilla {
 	    		Jugador.getJugador().setCoord(casillaNueva);
 	    		Mapa.getMapa().activarEvento(casillaNueva);
 	    	} else {
+	    		//System.out.print("casilla ocupada");
+	    		//System.out.println();
 	    		this.activarEvento();
 	    	}
 	    	this.imagen = "0";
@@ -27,6 +29,6 @@ public class Teleport extends Casilla {
 	
 	@Override
 	public void hacerCamino() {
-		this.imagen = "0";
+		
 	}
 }

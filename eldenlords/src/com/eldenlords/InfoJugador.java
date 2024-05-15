@@ -11,5 +11,9 @@ public class InfoJugador {
 
 	public void imprimirInfoJugador() {
 		System.out.print(this.nombre + " " + this.numPasos);
+		System.out.println();
+	}
+	public int getPuntuacion() {
+		return this.numPasos;
 	}
 }

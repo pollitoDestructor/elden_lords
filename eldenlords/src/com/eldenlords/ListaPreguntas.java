@@ -19,6 +19,16 @@ public class ListaPreguntas {
 	lista.add(preg6);
 	Pregunta preg7 = new Pregunta("¿Cuál es la montaña más alta del planeta?","Everest");
 	lista.add(preg7);
+	Pregunta preg8 = new Pregunta("¿Qué animal produce más lana?","Oveja");
+	lista.add(preg8);
+	Pregunta preg9 = new Pregunta("¿Cuál es el resultado de sumar un número a su opuesto?","0");
+	lista.add(preg9);
+	Pregunta preg10 = new Pregunta("¿Cómo se llama la numeración que emplea los dígitos del 0 al 9 y las letras de la A a la F?","Hexadecimal");
+	lista.add(preg10);
+	Pregunta preg11 = new Pregunta("¿Por dónde debe circular un rebaño de ovejas en una carretera?","Derecha");
+	lista.add(preg11);
+	Pregunta preg12 = new Pregunta("¿Cuál es la mascota de la franquicia Pokémon?","Pikachu");
+	lista.add(preg12);
 }
 	public boolean hacerPregunta(int pNumPregunta) {
 		return lista.get(pNumPregunta).hacerPregunta();

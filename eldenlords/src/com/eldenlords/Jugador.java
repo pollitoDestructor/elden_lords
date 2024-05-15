@@ -13,13 +13,14 @@ public class Jugador {
 		return miJugador;
 	}
 	public static void main(String[] args) {
+		Mapa.getMapa().prepararTablero();
         Jugador.getJugador().jugarPartida();
     }
 	public void setCoord(Coordenada pCoord) {
 		this.coord = pCoord;
 	}
 	public void jugarPartida() {
-		Mapa.getMapa().prepararTablero();
+		
 		Mapa.getMapa().cambiarImagen(this.coord);
 		while (!Mapa.getMapa().esSalida(this.coord)) {
 			System.out.println();
@@ -28,7 +29,7 @@ public class Jugador {
 				this.mover();
 				Mapa.getMapa().activarEvento(this.coord);
 			} catch(NoEsDireccionException me) {
-				System.out.print("No has escrito bien la dirección (asegúrate de empezar con mayúscula).");
+				System.out.print("No has escrito bien la dirección.");
 				System.out.println();
 			}
 		}
@@ -39,11 +40,12 @@ public class Jugador {
 		switch(movimiento){
 		case "arriba":
 			try {
-				contarMovimiento();
+				
 				this.coord.setX(this.coord.x() - 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
 				} 
+				contarMovimiento();
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
 				System.out.println();
@@ -53,11 +55,12 @@ public class Jugador {
 			break;
 		case "abajo":
 			try {
-				contarMovimiento();
+				
 				this.coord.setX(this.coord.x() + 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
 				}
+				contarMovimiento();
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
 				System.out.println();
@@ -66,11 +69,12 @@ public class Jugador {
 			break;
 		case "derecha":
 			try {
-				contarMovimiento();
+				
 				this.coord.setY(this.coord.y() + 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
 				}
+				contarMovimiento();
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
 				System.out.println();
@@ -79,11 +83,12 @@ public class Jugador {
 			break;
 		case "izquierda":
 			try {
-				contarMovimiento();
+				
 				this.coord.setY(this.coord.y() - 1);
 				if(!Mapa.getMapa().estaHabilitada(this.coord)) {
 					throw (new PosicionOcupadaException());
 				} 
+				contarMovimiento();
 			} catch (PosicionOcupadaException me) {
 				System.out.print("La dirección introducida está ocupada");
 				System.out.println();

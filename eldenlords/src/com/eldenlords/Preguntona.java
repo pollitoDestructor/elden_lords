@@ -10,7 +10,7 @@ public class Preguntona extends Casilla {
 	}
 	
 	public void activarEvento() {
-		int numPregunta = Dado.getDado().tirarDado(7);
+		int numPregunta = Dado.getDado().tirarDado(12);
 		boolean correcta = this.listaPreguntas.hacerPregunta(numPregunta - 1);
 		if(correcta) {
 			System.out.print("Respuesta correcta.");

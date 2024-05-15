@@ -18,7 +18,12 @@ public class Salida extends Casilla{
 		System.out.print("Este ha sido tu recorrido:");
 		System.out.println();
 		Mapa.getMapa().printMap();
+		System.out.print("Ingrese su nombre:");
+		System.out.println();
 		InfoJugador ganador = new InfoJugador(Jugador.getJugador().puntuacion(), Teclado.getTeclado().leerString());
+		System.out.println();
 		Ranking.getRanking().añadirRanking(ganador);
+		Ranking.getRanking().ordenarRanking();
+		Ranking.getRanking().imprimirRanking();
 	}
 }

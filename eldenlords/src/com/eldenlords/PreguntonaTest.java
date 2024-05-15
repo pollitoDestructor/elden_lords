@@ -6,7 +6,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class MapaTest {
+class PreguntonaTest {
 
 	@BeforeEach
 	void setUp() throws Exception {
@@ -15,17 +15,13 @@ class MapaTest {
 	@AfterEach
 	void tearDown() throws Exception {
 	}
-	
-	
-	
-	
-	@Test
-	void testSePegaContraLaPared() {
-		Mapa.getMapa().prepararTablero();
-		Jugador.getJugador().jugarPartida();
-		//Si te mueves en línea recta en cualquier dirección, llegará u n momento en el que no te deje, ya que habrá una pared
-	}
 
-	
+	@Test
+	void testCasillaTeleport() {
+		Mapa.getMapa().prepararTablero();
+		Mapa.getMapa().ponerCasillaPreguntona(new Coordenada(Mapa.getMapa().calcularCentro()-1,Mapa.getMapa().calcularCentro()));
+		Jugador.getJugador().jugarPartida();
+		//Al moverte hacia arriba te pregunta
+	}
 
 }
