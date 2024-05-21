@@ -1,6 +1,6 @@
 package com.eldenlords;
 
-import java.util.Random;
+
 
 public class Walker {
 	private Coordenada pos = new Coordenada(0,0);
